@@ -12,6 +12,12 @@ img{
     border-radius: 50%;
 }
 
+i{
+    color: lightgray;
+    margin: 0 10px;
+    font-size: 25px;
+}
+
 /* sidebar */
 
 #sidebar{
