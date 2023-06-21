@@ -46,7 +46,7 @@ ul{
     /* ? chats */
 
 #sidebar .chats-list{
-    max-height: 603px;
+    max-height: 592px;
     overflow-y: auto;
 }
 
