@@ -230,6 +230,16 @@ const app = createApp({
       newMessage: '',
     };
   },
+  computed: {
+    nowDate() {
+      // prendo la data di adesso nel formato scelto
+      const now = new Date();
+      const nowDate = `${now.getDate()}/${
+        now.getMonth() + 1
+      }/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+      return nowDate;
+    },
+  },
   methods: {
     changeChat(i) {
       // sovrascrivo gli elementi in pagina con quelli scelti dall'utente
@@ -242,12 +252,8 @@ const app = createApp({
 
       const arr = this.currentChat.messages;
 
-      // prendo la data di adesso nel formato scelto
-      const now = new Date();
-
-      const messageDate = `${now.getDate()}/${
-        now.getMonth() + 1
-      }/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+      // salvo la data
+      const messageDate = this.nowDate;
 
       // aggiungo il messaggio alla lista di messaggi
       arr.push({
