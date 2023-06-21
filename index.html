@@ -18,7 +18,7 @@
                     <header class="navbar">
                         <div class="d-flex align-items-center h-100">
                             <img src="img/avatar_io.jpg" alt="">
-                            <div class="userName">Nome Utente</div>
+                            <div class="info-text">Nome Utente</div>
                         </div>
                         <div>
                             <i class="fa-solid fa-circle-notch"></i>
@@ -26,10 +26,25 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </header>
-                    <div class="notifications"></div>
+                    <div class="notifications d-flex align-items-center px-4">
+                        <div class="bell-container d-flex align-items-center rounded-circle">
+                            <i class="fa-solid fa-bell-slash"></i>
+                        </div>
+                        <div class="">
+                            <div class="info-text">
+                                Ricevi notifiche di nuovi messaggi
+                            </div>
+                            <div class="info-text fs-6 text-decoration-underline text-gray">
+                                Attiva notifiche desktop
+                            </div>
+                        </div>
+                    </div>
                     <div class="chats">
-                        <div class="chats-search p-2">
-                            <input type="text" class="form-control">
+                        <div class="input-group mb-3 p-1">
+                            <span class="input-group-text bg-white border-0">
+                                <i class="fa-solid fa-magnifying-glass ms-2 text-gray"></i>
+                            </span>
+                            <input type="text" class="form-control border-0" placeholder="Cerca o inizia una nuova chat">
                         </div>
                         <ul class="chats-list">
                             

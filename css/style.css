@@ -1,6 +1,12 @@
+:root{
+    --green: #009688;
+    --blue: #8edafc;
+    --gray: #d9dbd4;
+}
+
 body{
     height: 100vh;
-    background: linear-gradient(180deg, rgba(0,150,136,1) 15%, rgba(219,219,212,1) 15%);
+    background: linear-gradient(180deg, var(--green) 15%, var(--gray) 15%);
 }
 
 .container{
@@ -12,8 +18,8 @@ img{
     border-radius: 50%;
 }
 
-i{
-    color: lightgray;
+.navbar i, .bell-container i{
+    color: gray;
     margin: 0 10px;
     font-size: 25px;
 }
@@ -26,15 +32,26 @@ i{
 }
 
 #sidebar .notifications{
-    background-color: blue;
+    background-color: var(--blue);
     height: 80px;
 }
 
     /* ? chats */
 
-#sidebar .chats .chats-list{
+#sidebar .chats-list{
     background-color: pink;
     height: 80px;
+}
+
+    /* ? notification */
+
+#sidebar .bell-container{
+    background-color: #fff;
+    height: 50px;
+}
+
+#sidebar .bell-container i{
+    color: var(--blue);
 }
 
 /* main */
@@ -60,8 +77,12 @@ main .chat{
     border: 4px dashed black;
 }
 
-.userName{
+.info-text{
     margin-left: 10px;
     font-weight: 500;
     font-size: 20px;
+}
+
+.text-gray{
+    color: gray;
 }
