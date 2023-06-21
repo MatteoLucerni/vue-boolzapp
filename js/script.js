@@ -232,19 +232,24 @@ const app = createApp({
   },
   methods: {
     changeChat(i) {
+      // sovrascrivo gli elementi in pagina con quelli scelti dall'utente
       this.currentChat.name = this.contacts[i].name;
       this.currentChat.avatar = this.contacts[i].avatar;
       this.currentChat.messages = this.contacts[i].messages;
     },
     addMessage() {
       if (!this.newMessage) return;
+
       const arr = this.currentChat.messages;
+
+      // prendo la data di adesso nel formato scelto
       const now = new Date();
 
       const messageDate = `${now.getDate()}/${
         now.getMonth() + 1
       }/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
 
+      // aggiungo il messaggio alla lista di messaggi
       arr.push({
         id: 4,
         date: messageDate,
@@ -252,8 +257,10 @@ const app = createApp({
         status: 'sent',
       });
 
+      // resetto l'input
       this.newMessage = '';
 
+      // risposta automatica
       setTimeout(() => {
         arr.push({
           id: 5,
