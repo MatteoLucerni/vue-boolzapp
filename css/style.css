@@ -4,6 +4,7 @@
     --gray: #d9dbd4;
     --lightgray: #eaeaea;
     --icons: #b1b1b1;
+    --lightgreen: #d5f9ba;
 }
 
 body{
@@ -69,20 +70,43 @@ ul{
 
 /* main */
 
-main .chat-input{
+main .messages-input{
     height: 80px;
-}
-
-main .chat{
-    background-image: url(../img/mine.jpg);
-    overflow: auto;
-    max-height: 740px;
 }
 
 main .navbar:last-child *{
     color: gray;
 }
 
+    /* ? messages */
+
+main .messages{
+    background-image: url(../img/mine.jpg);
+    overflow: auto;
+    max-height: 740px;
+    position: relative;
+    padding: 20px 40px;
+}
+
+.message{
+    margin: 15px 0;
+}
+
+.sent-message, .recived-message{
+    display: inline-block;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.sent-message{
+    background-color: var(--lightgreen);
+    display: flex;
+    align-self: flex-end;
+}
+
+.recived-message{
+    background-color: white;
+}
 
 /* utils */
 
