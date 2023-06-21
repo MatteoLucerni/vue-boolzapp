@@ -17,8 +17,8 @@
                 <div id="sidebar">
                     <header class="navbar">
                         <div class="d-flex align-items-center h-100">
-                            <img src="img/avatar_io.jpg" alt="">
-                            <div class="info-text">Nome Utente</div>
+                            <img :src=`img/avatar${user.avatar}.jpg` :alt="user.name">
+                            <div class="info-text">{{user.name}}</div>
                         </div>
                         <div>
                             <i class="fa-solid fa-circle-notch"></i>
@@ -46,8 +46,11 @@
                             </span>
                             <input type="text" class="form-control border-0" placeholder="Cerca o inizia una nuova chat">
                         </div>
-                        <ul class="chats-list">
-                            
+                        <ul class="chats-list p-0">
+                            <li v-for="contact in contacts" class="d-flex py-2">
+                                <img :src=`img/avatar${contact.avatar}` :alt="user.name" class="ms-4 me-2">
+                                <div class="info-text">{{contact.name}}</div>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -77,7 +80,6 @@
         </div>
     </div>
     
-    <script src="js/data.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

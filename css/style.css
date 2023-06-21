@@ -26,6 +26,10 @@ img{
     font-size: 25px;
 }
 
+ul{
+    list-style: none;
+}
+
 /* sidebar */
 
 #sidebar{
@@ -41,9 +45,9 @@ img{
     /* ? chats */
 
 #sidebar .chats-list{
+    max-height: 603px;
     background-color: pink;
-    height: 80px;
-    overflow: auto;
+    overflow-y: auto;
 }
 
     /* ? notification */
@@ -57,6 +61,11 @@ img{
     color: var(--blue);
 }
 
+#sidebar ul li{
+    height: 100px;
+    border-bottom: 1px solid var(--lightgray);
+}
+
 /* main */
 
 main .chat-input{
@@ -66,6 +75,7 @@ main .chat-input{
 main .chat{
     background-image: url(../img/mine.jpg);
     overflow: auto;
+    max-height: 740px;
 }
 
 main .navbar:last-child *{
