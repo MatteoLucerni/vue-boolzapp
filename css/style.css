@@ -93,7 +93,7 @@ main .messages{
 }
 
 .message p{
-    max-width: 400px;
+    max-width: 280px;
     word-wrap: break-word;
 }
 
@@ -102,7 +102,7 @@ main .messages{
     padding: 20px;
     border-radius: 15px;
     min-width: 300px;
-    max-width: 500px;
+    max-width: 400px;
     position: relative;
     padding-bottom: 25px;
 }
@@ -124,6 +124,13 @@ main .messages{
     bottom: 3px;
     font-size: 0.8rem;
     color: rgb(185, 185, 185);
+}
+
+.message .arrow-menu{
+    position: absolute;
+    top: 2px;
+    right: 12px;
+    color: gray;
 }
 
 /* utils */

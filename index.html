@@ -60,7 +60,7 @@
                             <img :src=`img/avatar${currentChat.avatar}.jpg` :alt="currentChat.name">
                             <div class="info-text">
                                 <div>{{currentChat.name}}</div>
-                                <div class="text-gray smaller-text">Ultimo accesso alle</div>
+                                <div class="text-gray smaller-text">Ultimo accesso alle 9:46</div>
                             </div>
                         </div>
                         <div>
@@ -75,6 +75,9 @@
                                 <p class="m-0">{{mess.message}}</p>
                                 <div class="message-time">
                                     {{mess.date}}
+                                </div>
+                                <div v-if="mess.status === 'sent'" class="arrow-menu">
+                                    <i class="fa-solid fa-chevron-down"></i>
                                 </div>
                             </div>
                         </div>
