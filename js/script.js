@@ -133,7 +133,7 @@ const app = createApp({
         {
           id: 6,
           name: 'Claudia',
-          avatar: '_5.jpg',
+          avatar: '_6.jpg',
           visible: true,
           messages: [
             {
@@ -203,7 +203,17 @@ const app = createApp({
           ],
         },
       ],
+      currentChat: {
+        name: 'Michele',
+        avatar: '_1.jpg',
+      },
     };
+  },
+  methods: {
+    changeChat(i) {
+      this.currentChat.name = this.contacts[i].name;
+      this.currentChat.avatar = this.contacts[i].avatar;
+    },
   },
 });
 

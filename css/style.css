@@ -109,3 +109,7 @@ main .navbar:last-child *{
 .smaller-text{
     font-size: 1rem;
 }
+
+.cursor-pointer{
+    cursor: pointer;
+}

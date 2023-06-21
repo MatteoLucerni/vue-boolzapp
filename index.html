@@ -34,7 +34,7 @@
                             <div class="info-text">
                                 Ricevi notifiche di nuovi messaggi
                             </div>
-                            <div class="info-text fs-6 text-decoration-underline text-gray">
+                            <div class="cursor-pointer info-text fs-6 text-decoration-underline text-gray">
                                 Attiva notifiche desktop
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                             <input type="text" class="form-control border-0" placeholder="Cerca o inizia una nuova chat">
                         </div>
                         <ul class="chats-list p-0">
-                            <li v-for="contact in contacts" class="d-flex py-2">
+                            <li v-for="(contact, i) in contacts" class="d-flex py-2" @click="changeChat(i)">
                                 <img :src=`img/avatar${contact.avatar}` :alt="user.name" class="ms-4 me-2">
                                 <div class="info-text">{{contact.name}}</div>
                             </li>
@@ -57,9 +57,9 @@
                 <main class="d-flex flex-column flex-grow-1">
                     <header class="navbar">
                         <div class="d-flex align-items-center h-100">
-                            <img src="img/avatar_1.jpg" alt="">
+                            <img :src=`img/avatar${currentChat.avatar}` :alt="currentChat.name">
                             <div class="info-text">
-                                <div>Michele</div>
+                                <div>{{currentChat.name}}</div>
                                 <div class="text-gray smaller-text">Ultimo accesso alle</div>
                             </div>
                         </div>
