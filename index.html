@@ -48,7 +48,7 @@
                         </div>
                         <ul class="chats-list p-0">
                             <li v-for="(contact, i) in contacts" class="d-flex py-2" @click="changeChat(i)">
-                                <img :src=`img/avatar${contact.avatar}` :alt="user.name" class="ms-4 me-2">
+                                <img :src=`img/avatar${contact.avatar}.jpg` :alt="user.name" class="ms-4 me-2">
                                 <div class="info-text">{{contact.name}}</div>
                             </li>
                         </ul>
@@ -57,7 +57,7 @@
                 <main class="d-flex flex-column flex-grow-1">
                     <header class="navbar">
                         <div class="d-flex align-items-center h-100">
-                            <img :src=`img/avatar${currentChat.avatar}` :alt="currentChat.name">
+                            <img :src=`img/avatar${currentChat.avatar}.jpg` :alt="currentChat.name">
                             <div class="info-text">
                                 <div>{{currentChat.name}}</div>
                                 <div class="text-gray smaller-text">Ultimo accesso alle</div>

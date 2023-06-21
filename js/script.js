@@ -15,7 +15,7 @@ const app = createApp({
         {
           id: 1,
           name: 'Michele',
-          avatar: '_1.jpg',
+          avatar: '_1',
           visible: true,
           messages: [
             {
@@ -41,7 +41,7 @@ const app = createApp({
         {
           id: 2,
           name: 'Fabio',
-          avatar: '_2.jpg',
+          avatar: '_2',
           visible: true,
           messages: [
             {
@@ -67,7 +67,7 @@ const app = createApp({
         {
           id: 3,
           name: 'Samuele',
-          avatar: '_3.jpg',
+          avatar: '_3',
           visible: true,
           messages: [
             {
@@ -93,7 +93,7 @@ const app = createApp({
         {
           id: 4,
           name: 'Alessandro B.',
-          avatar: '_4.jpg',
+          avatar: '_4',
           visible: true,
           messages: [
             {
@@ -113,7 +113,7 @@ const app = createApp({
         {
           id: 5,
           name: 'Alessandro L.',
-          avatar: '_5.jpg',
+          avatar: '_5',
           visible: true,
           messages: [
             {
@@ -133,7 +133,7 @@ const app = createApp({
         {
           id: 6,
           name: 'Claudia',
-          avatar: '_6.jpg',
+          avatar: '_6',
           visible: true,
           messages: [
             {
@@ -159,7 +159,7 @@ const app = createApp({
         {
           id: 7,
           name: 'Federico',
-          avatar: '_7.jpg',
+          avatar: '_7',
           visible: true,
           messages: [
             {
@@ -179,7 +179,7 @@ const app = createApp({
         {
           id: 8,
           name: 'Davide',
-          avatar: '_8.jpg',
+          avatar: '_8',
           visible: true,
           messages: [
             {
@@ -205,7 +205,27 @@ const app = createApp({
       ],
       currentChat: {
         name: 'Michele',
-        avatar: '_1.jpg',
+        avatar: '_1',
+        messages: [
+          {
+            id: 1,
+            date: '10/01/2020 15:30:55',
+            message: 'Hai portato a spasso il cane?',
+            status: 'sent',
+          },
+          {
+            id: 2,
+            date: '10/01/2020 15:50:00',
+            message: 'Ricordati di stendere i panni',
+            status: 'sent',
+          },
+          {
+            id: 3,
+            date: '10/01/2020 16:15:22',
+            message: 'Tutto fatto!',
+            status: 'received',
+          },
+        ],
       },
     };
   },
