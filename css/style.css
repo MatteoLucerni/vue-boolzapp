@@ -24,6 +24,7 @@ img{
     color: var(--icons);
     margin: 0 10px;
     font-size: 25px;
+    cursor: pointer;
 }
 
 ul{
@@ -39,14 +40,13 @@ ul{
 
 #sidebar .notifications{
     background-color: var(--blue);
-    height: 80px;
+    height: 90px;
 }
 
     /* ? chats */
 
 #sidebar .chats-list{
     max-height: 603px;
-    background-color: pink;
     overflow-y: auto;
 }
 
@@ -64,6 +64,7 @@ ul{
 #sidebar ul li{
     height: 100px;
     border-bottom: 1px solid var(--lightgray);
+    cursor: pointer;
 }
 
 /* main */
