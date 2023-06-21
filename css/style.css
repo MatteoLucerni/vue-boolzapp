@@ -92,21 +92,38 @@ main .messages{
     margin: 15px 0;
 }
 
-.sent-message, .recived-message{
+.message p{
+    max-width: 400px;
+    word-wrap: break-word;
+}
+
+.message .sent-message, .recived-message{
     display: inline-block;
     padding: 20px;
     border-radius: 15px;
+    min-width: 300px;
+    max-width: 500px;
+    position: relative;
+    padding-bottom: 25px;
 }
 
-.sent-message{
+.message .sent-message{
     background-color: var(--lightgreen);
     display: flex;
     align-self: flex-end;
 }
 
-.received-message{
+.message .received-message{
     background-color: white;
     align-self: flex-start;
+}
+
+.message .message-time{
+    position: absolute;
+    right: 10px;
+    bottom: 3px;
+    font-size: 0.8rem;
+    color: rgb(185, 185, 185);
 }
 
 /* utils */

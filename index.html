@@ -71,12 +71,17 @@
                     </header>
                     <div class="messages flex-grow-1">
                         <div v-for="mess in currentChat.messages" class="message d-flex flex-column">
-                            <div class="sent-message" :class="{'sent-message': mess.status === 'sent'},{'received-message': mess.status === 'received'}">{{mess.message}}</div>
+                            <div class="sent-message" :class="{'sent-message': mess.status === 'sent'},{'received-message': mess.status === 'received'}">
+                                <p class="m-0">{{mess.message}}</p>
+                                <div class="message-time">
+                                    {{mess.date}}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="navbar px-4">
                         <i class="fa-regular fa-face-smile"></i>
-                        <input type="text" class="h-100 rounded border-0 flex-grow-1 px-3 mx-4" placeholder="Scrivi un messaggio">
+                        <input @keyup.enter="addMessage" v-model.trim="newMessage" type="text" class="h-100 rounded border-0 flex-grow-1 px-3 mx-4" placeholder="Scrivi un messaggio">
                         <i class="fa-solid fa-microphone"></i>
                     </div>
                 </main>

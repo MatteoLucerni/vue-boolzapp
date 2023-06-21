@@ -227,6 +227,7 @@ const app = createApp({
           },
         ],
       },
+      newMessage: '',
     };
   },
   methods: {
@@ -234,6 +235,33 @@ const app = createApp({
       this.currentChat.name = this.contacts[i].name;
       this.currentChat.avatar = this.contacts[i].avatar;
       this.currentChat.messages = this.contacts[i].messages;
+    },
+    addMessage() {
+      if (!this.newMessage) return;
+      const arr = this.currentChat.messages;
+      const now = new Date();
+
+      const messageDate = `${now.getDate()}/${
+        now.getMonth() + 1
+      }/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+
+      arr.push({
+        id: 4,
+        date: messageDate,
+        message: this.newMessage,
+        status: 'sent',
+      });
+
+      this.newMessage = '';
+
+      setTimeout(() => {
+        arr.push({
+          id: 5,
+          date: messageDate,
+          message: 'Ok',
+          status: 'received',
+        });
+      }, 2000);
     },
   },
 });
