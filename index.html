@@ -44,10 +44,10 @@
                             <span class="input-group-text bg-white border-0">
                                 <i class="fa-solid fa-magnifying-glass ms-2 text-gray"></i>
                             </span>
-                            <input type="text" class="form-control border-0" placeholder="Cerca o inizia una nuova chat">
+                            <input v-model="userFilter" type="text" class="form-control border-0" placeholder="Cerca o inizia una nuova chat">
                         </div>
                         <ul class="chats-list p-0">
-                            <li v-for="(contact, i) in contacts" class="d-flex py-2" @click="changeChat(i)">
+                            <li v-for="(contact, i) in filteredContacts" class="d-flex py-2" @click="changeChat(i)">
                                 <img :src=`img/avatar${contact.avatar}.jpg` :alt="user.name" class="ms-4 me-2">
                                 <div class="info-text">{{contact.name}}</div>
                             </li>

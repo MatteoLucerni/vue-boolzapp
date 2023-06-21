@@ -228,6 +228,7 @@ const app = createApp({
         ],
       },
       newMessage: '',
+      userFilter: '',
     };
   },
   computed: {
@@ -244,10 +245,24 @@ const app = createApp({
       const arr = this.currentChat.messages;
 
       const highestId = arr.reduce((acc, mess) => {
-        if (mess.id > acc) return mess.id;
+        if (mess.id > acc) mess.id;
       }, 0);
 
       return highestId;
+    },
+    filteredContacts() {
+      // filtro di ricerca
+      const arr = this.contacts;
+      const userFilter = this.userFilter.toLowerCase();
+
+      const filteredContacts = arr.filter(contact => {
+        const name = contact.name.toLowerCase();
+        if (name.includes(userFilter)) {
+          return contact;
+        }
+      });
+
+      return filteredContacts;
     },
   },
   methods: {
