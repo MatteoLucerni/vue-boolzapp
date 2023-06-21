@@ -11,7 +11,35 @@
     <title>Boolzapp</title>
 </head>
 <body>
-    <div id="root"></div>
+    <div class="vh-100 vw-100 d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div id="root" class="h-100 bg-light d-flex">
+                <div id="sidebar" class="debug">
+                    <header class="navbar">
+                        
+                    </header>
+                    <div class="notifications"></div>
+                    <div class="chats">
+                        <div class="chats-search p-2">
+                            <input type="text" class="form-control">
+                        </div>
+                        <ul class="chats-list">
+                            
+                        </ul>
+                    </div>
+                </div>
+                <main class="d-flex flex-column flex-grow-1">
+                    <header class="navbar">
+                        
+                    </header>
+                    <div class="chat flex-grow-1"></div>
+                    <div class="navbar">
+                        
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
     
     <script src="js/data.js"></script>
     <script src="js/script.js"></script>

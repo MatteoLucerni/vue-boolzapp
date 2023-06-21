@@ -2,3 +2,60 @@ body{
     height: 100vh;
     background: linear-gradient(180deg, rgba(0,150,136,1) 15%, rgba(219,219,212,1) 15%);
 }
+
+.container{
+    height: 830px;
+}
+
+img{
+    max-height: 100%;
+    border-radius: 50%;
+}
+
+/* sidebar */
+
+#sidebar{
+    width: 500px;
+    background-color: red;
+}
+
+#sidebar .notifications{
+    background-color: blue;
+    height: 80px;
+}
+
+    /* ? chats */
+
+#sidebar .chats .chats-list{
+    background-color: pink;
+    height: 80px;
+}
+
+/* main */
+
+main .chat-input{
+    height: 80px;
+}
+
+main .chat{
+    background-color: yellow;
+}
+
+
+/* utils */
+
+.navbar{
+    background-color: green;
+    height: 80px;
+    padding: 10px;
+}
+
+.debug{
+    border: 4px dashed black;
+}
+
+.userName{
+    margin-left: 10px;
+    font-weight: 500;
+    font-size: 20px;
+}
