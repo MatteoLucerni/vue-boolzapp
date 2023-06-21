@@ -239,6 +239,16 @@ const app = createApp({
       }/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
       return nowDate;
     },
+    highestId() {
+      //prendo l'id più alto dalla lista dei messaggi correnti
+      const arr = this.currentChat.messages;
+
+      const highestId = arr.reduce((acc, mess) => {
+        if (mess.id > acc) return mess.id;
+      }, 0);
+
+      return highestId;
+    },
   },
   methods: {
     changeChat(i) {
@@ -252,12 +262,16 @@ const app = createApp({
 
       const arr = this.currentChat.messages;
 
+      // prendo l'id più alto
+      let highestId = this.highestId;
+      console.log(highestId);
+
       // salvo la data
       const messageDate = this.nowDate;
 
       // aggiungo il messaggio alla lista di messaggi
       arr.push({
-        id: 4,
+        id: ++highestId,
         date: messageDate,
         message: this.newMessage,
         status: 'sent',
@@ -269,7 +283,7 @@ const app = createApp({
       // risposta automatica
       setTimeout(() => {
         arr.push({
-          id: 5,
+          id: ++highestId,
           date: messageDate,
           message: 'Ok',
           status: 'received',
