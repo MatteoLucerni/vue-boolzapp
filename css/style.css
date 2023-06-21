@@ -2,6 +2,8 @@
     --green: #009688;
     --blue: #8edafc;
     --gray: #d9dbd4;
+    --lightgray: #eaeaea;
+    --icons: #b1b1b1;
 }
 
 body{
@@ -19,7 +21,7 @@ img{
 }
 
 .navbar i, .bell-container i{
-    color: gray;
+    color: var(--icons);
     margin: 0 10px;
     font-size: 25px;
 }
@@ -28,7 +30,7 @@ img{
 
 #sidebar{
     width: 500px;
-    background-color: red;
+    border-right: 1px solid gray;
 }
 
 #sidebar .notifications{
@@ -41,6 +43,7 @@ img{
 #sidebar .chats-list{
     background-color: pink;
     height: 80px;
+    overflow: auto;
 }
 
     /* ? notification */
@@ -62,15 +65,20 @@ main .chat-input{
 
 main .chat{
     background-image: url(../img/mine.jpg);
+    overflow: auto;
+}
+
+main .navbar:last-child *{
+    color: gray;
 }
 
 
 /* utils */
 
 .navbar{
-    background-color: green;
     height: 80px;
     padding: 10px;
+    background-color: var(lightgray);
 }
 
 .debug{
