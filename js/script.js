@@ -212,18 +212,21 @@ const app = createApp({
             date: '10/01/2020 15:30:55',
             message: 'Hai portato a spasso il cane?',
             status: 'sent',
+            isArrowClicked: false,
           },
           {
             id: 2,
             date: '10/01/2020 15:50:00',
             message: 'Ricordati di stendere i panni',
             status: 'sent',
+            isArrowClicked: false,
           },
           {
             id: 3,
             date: '10/01/2020 16:15:22',
             message: 'Tutto fatto!',
             status: 'received',
+            isArrowClicked: false,
           },
         ],
       },
@@ -273,6 +276,7 @@ const app = createApp({
       this.currentChat.name = this.contacts[i].name;
       this.currentChat.avatar = this.contacts[i].avatar;
       this.currentChat.messages = this.contacts[i].messages;
+      this.currentChat.isArrowClicked = false;
     },
     addMessage() {
       if (!this.newMessage) return;

@@ -133,6 +133,13 @@ main .messages{
     color: gray;
 }
 
+.message .delete-menu{
+    background-color: #fff;
+    position: absolute;
+    top: 17px;
+    right: 17px;
+}
+
 /* utils */
 
 .navbar{
