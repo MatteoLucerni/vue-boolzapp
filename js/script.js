@@ -235,9 +235,11 @@ const app = createApp({
     nowDate() {
       // prendo la data di adesso nel formato scelto
       const now = new Date();
+
       const nowDate = `${now.getDate()}/${
         now.getMonth() + 1
       }/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+
       return nowDate;
     },
     highestId() {
@@ -245,7 +247,7 @@ const app = createApp({
       const arr = this.currentChat.messages;
 
       const highestId = arr.reduce((acc, mess) => {
-        if (mess.id > acc) mess.id;
+        if (mess.id > acc) return mess.id;
       }, 0);
 
       return highestId;
