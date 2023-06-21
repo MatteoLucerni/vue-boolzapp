@@ -70,11 +70,8 @@
                         </div>
                     </header>
                     <div class="messages flex-grow-1">
-                        <div class="message d-flex flex-column">
-                            <div class="sent-message">Ciao, come stai?</div>
-                        </div>
-                        <div class="message">
-                            <div class="recived-message">Ciao, come stai?</div>
+                        <div v-for="mess in currentChat.messages" class="message d-flex flex-column">
+                            <div class="sent-message" :class="{'sent-message': mess.status === 'sent'},{'received-message': mess.status === 'received'}">{{mess.message}}</div>
                         </div>
                     </div>
                     <div class="navbar px-4">

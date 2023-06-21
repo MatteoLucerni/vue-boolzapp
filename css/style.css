@@ -104,8 +104,9 @@ main .messages{
     align-self: flex-end;
 }
 
-.recived-message{
+.received-message{
     background-color: white;
+    align-self: flex-start;
 }
 
 /* utils */

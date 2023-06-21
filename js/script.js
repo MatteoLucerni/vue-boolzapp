@@ -233,6 +233,7 @@ const app = createApp({
     changeChat(i) {
       this.currentChat.name = this.contacts[i].name;
       this.currentChat.avatar = this.contacts[i].avatar;
+      this.currentChat.messages = this.contacts[i].messages;
     },
   },
 });
