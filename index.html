@@ -51,7 +51,8 @@
                                 <img :src=`img/avatar${contact.avatar}.jpg` :alt="user.name" class="ms-4 me-2">
                                 <div class="info-text">
                                     {{contact.name}}
-                                    <div class="last-message smaller-text text-gray">{{contact.messages[contact.messages.length - 1].message}}</div>
+                                    <div class="last-message smaller-text text-gray">Ultimo messaggio: {{contact.messages[contact.messages.length - 1].message}}</div>
+                                    <div class="text-gray smaller-text">Ultimo accesso: {{contact.messages[contact.messages.length - 1].date}}</div>
                                 </div>
                             </li>
                         </ul>
@@ -63,7 +64,7 @@
                             <img :src=`img/avatar${currentChat.avatar}.jpg` :alt="currentChat.name">
                             <div class="info-text">
                                 <div>{{currentChat.name}}</div>
-                                <div class="text-gray smaller-text">Ultimo accesso alle 9:46</div>
+                                <div class="text-gray smaller-text">Ultimo accesso: {{currentChat.messages[currentChat.messages.length - 1].date}}</div>
                             </div>
                         </div>
                         <div>

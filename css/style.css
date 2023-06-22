@@ -67,7 +67,7 @@ ul{
 }
 
 #sidebar ul li{
-    height: 100px;
+    height: 120px;
     border-bottom: 1px solid var(--lightgray);
     cursor: pointer;
     text-overflow: ellipsis;
