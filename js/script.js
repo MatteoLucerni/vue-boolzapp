@@ -281,6 +281,10 @@ const app = createApp({
 
       return filteredContacts;
     },
+    // lastMessage(contact) {
+    //   const arr = contact.messages;
+    //   return arr.length - 1;
+    // },
   },
   methods: {
     changeChat(i) {
