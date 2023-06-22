@@ -252,6 +252,7 @@ const app = createApp({
         message: '',
         status: '',
       },
+      isEmojiMenu: false,
     };
   },
   computed: {

@@ -29,7 +29,7 @@ img{
 }
 
 .navbar i:hover, .bell-container i:hover{
-    color: gray;
+    color: black
 }
 
 ul{
@@ -81,10 +81,6 @@ ul{
 
 main .messages-input{
     height: 80px;
-}
-
-main .navbar:last-child *{
-    color: gray;
 }
 
     /* ? messages */
@@ -198,5 +194,13 @@ main .navbar:last-child *{
 }
 
 .cursor-pointer{
+    cursor: pointer;
+}
+
+.emoji-menu{
+    height: 45px;
+    position: absolute;
+    top: -40px;
+    left: 26px;
     cursor: pointer;
 }

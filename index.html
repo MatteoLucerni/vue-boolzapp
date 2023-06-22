@@ -112,7 +112,10 @@
                         </div>
                     </div>
                     <div class="navbar px-4">
-                        <i class="fa-regular fa-face-smile"></i>
+                        <div v-if="isEmojiMenu === true" class="emoji-menu bg-dark p-2 rounded">
+                            😂🤣😍😒👌😘💕❤️
+                        </div>
+                        <i @click="isEmojiMenu = !isEmojiMenu" class="fa-regular fa-face-smile"></i>
                         <input @keyup.enter="addMessage" v-model.trim="newMessage" type="text" class="h-100 rounded border-0 flex-grow-1 px-3 mx-4" placeholder="Scrivi un messaggio">
                         <i class="fa-solid fa-microphone"></i>
                     </div>
