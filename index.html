@@ -73,6 +73,26 @@
                         </div>
                     </header>
                     <div class="messages flex-grow-1">
+                        <div v-if="currentChat.infoVisible === true" class="message-info bg-dark text-white p-2 rounded">
+                            <div class="text-center mb-3">
+                                <i @click="currentChat.infoVisible = false" class="fa-solid fa-xmark cursor-pointer"></i>
+                            </div>
+                            <div>
+                                Numero messaggio: {{infoMessage.id}}
+                            </div>
+                            <div>
+                                Inviato da: {{infoMessage.name}}
+                            </div>
+                            <div>
+                                Inviato il: {{infoMessage.date}}
+                            </div>
+                            <div>
+                                Contenuto: {{infoMessage.message}}
+                            </div>
+                            <div>
+                                Stato: {{infoMessage.status}}
+                            </div>
+                        </div>
                         <div v-for="mess in currentChat.messages" class="message d-flex flex-column">
                             <div class="message-graphic" :class="{'sent-message': mess.status === 'sent'},{'received-message': mess.status === 'received'}">
                                 <p class="m-0">{{mess.message}}</p>
@@ -82,7 +102,9 @@
                                 <div class="arrow-menu">
                                     <i @click="mess.isArrowClicked = !mess.isArrowClicked" class="fa-solid fa-chevron-down"></i>
                                     <div v-if="mess.isArrowClicked" class="delete-menu rounded border">
-                                        <button @click="deleteMessage(mess)" class="btn">Elimina Messaggio</button>
+                                        <button @click="getMessageInfo(mess)" class="btn">Info Messaggio</button>
+                                        <hr>
+                                        <button @click="deleteMessage(mess)" class="btn my-0">Elimina Messaggio</button>
                                     </div>
                                 </div>
                             </div>

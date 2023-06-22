@@ -89,13 +89,25 @@ main .navbar:last-child *{
 
     /* ? messages */
 
-main .messages{
+.messages{
     background-image: url(../img/mine.jpg);
     overflow: auto;
     max-height: 740px;
     position: relative;
     padding: 20px 40px;
 }
+
+.messages .message-info{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 300px;
+    overflow: auto;
+}
+
+    /* ? message */
 
 .message{
     margin: 15px 0;
@@ -141,6 +153,7 @@ main .messages{
     right: 12px;
     color: gray;
     display: none;
+    z-index: 1;
 }
 
 .message-graphic:hover .arrow-menu{

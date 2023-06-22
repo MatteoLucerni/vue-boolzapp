@@ -229,6 +229,7 @@ const app = createApp({
             isArrowClicked: false,
           },
         ],
+        infoVisible: false,
       },
       newMessage: '',
       userFilter: '',
@@ -244,6 +245,13 @@ const app = createApp({
         'Nessuna idea.',
         'Sì, ma con alcune restrizioni.',
       ],
+      infoMessage: {
+        id: 0,
+        name: '',
+        date: '',
+        message: '',
+        status: '',
+      },
     };
   },
   computed: {
@@ -334,6 +342,15 @@ const app = createApp({
     },
     randomNumber(max, min) {
       return Math.floor(Math.random() * (max + 1 - min)) + min;
+    },
+    getMessageInfo(mess) {
+      this.infoMessage.id = mess.id;
+      this.infoMessage.name = this.currentChat.name;
+      this.infoMessage.date = mess.date;
+      this.infoMessage.message = mess.message;
+      this.infoMessage.status = mess.status;
+
+      this.currentChat.infoVisible = true;
     },
   },
 });
