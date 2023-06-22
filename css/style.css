@@ -106,7 +106,7 @@ main .messages{
     word-wrap: break-word;
 }
 
-.message .sent-message, .recived-message{
+.message .sent-message, .received-message{
     display: inline-block;
     padding: 20px;
     border-radius: 15px;
@@ -140,6 +140,11 @@ main .messages{
     top: 2px;
     right: 12px;
     color: gray;
+    display: none;
+}
+
+.message-graphic:hover .arrow-menu{
+    display: block;
 }
 
 .message .delete-menu{
