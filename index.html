@@ -79,7 +79,7 @@
                                 <div v-if="mess.status === 'sent'" class="arrow-menu">
                                     <i @click="mess.isArrowClicked = !mess.isArrowClicked" class="fa-solid fa-chevron-down"></i>
                                     <div v-if="mess.isArrowClicked" class="delete-menu rounded border">
-                                        <button class="btn">Elimina Messaggio</button>
+                                        <button @click="deleteMessage(mess)" class="btn">Elimina Messaggio</button>
                                     </div>
                                 </div>
                             </div>

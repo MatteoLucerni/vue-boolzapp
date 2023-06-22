@@ -276,7 +276,6 @@ const app = createApp({
       this.currentChat.name = this.contacts[i].name;
       this.currentChat.avatar = this.contacts[i].avatar;
       this.currentChat.messages = this.contacts[i].messages;
-      this.currentChat.isArrowClicked = false;
     },
     addMessage() {
       if (!this.newMessage) return;
@@ -310,6 +309,13 @@ const app = createApp({
           status: 'received',
         });
       }, 2000);
+    },
+    deleteMessage(message) {
+      let arr = this.currentChat.messages;
+      const idToRemove = message.id;
+      this.currentChat.messages = arr.filter(mess => {
+        return mess.id !== idToRemove;
+      });
     },
   },
 });
