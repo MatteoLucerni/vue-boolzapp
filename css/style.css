@@ -28,6 +28,10 @@ img{
     cursor: pointer;
 }
 
+.navbar i:hover, .bell-container i:hover{
+    color: gray;
+}
+
 ul{
     list-style: none;
 }
@@ -66,6 +70,10 @@ ul{
     height: 100px;
     border-bottom: 1px solid var(--lightgray);
     cursor: pointer;
+}
+
+#sidebar ul li:hover{
+    background-color: var(--lightgray);
 }
 
 /* main */
@@ -138,6 +146,10 @@ main .messages{
     position: absolute;
     top: 17px;
     right: 17px;
+}
+
+.message i{
+    cursor: pointer;
 }
 
 /* utils */
