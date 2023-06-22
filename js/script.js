@@ -232,6 +232,18 @@ const app = createApp({
       },
       newMessage: '',
       userFilter: '',
+      randomMessages: [
+        'Sì, assolutamente.',
+        'No, mi dispiace.',
+        'Forse, dipende dalle circostanze.',
+        'Non ne sono sicuro al momento.',
+        'È possibile, ma non posso confermarlo con certezza.',
+        'Assolutamente no.',
+        'Certo, senza dubbio.',
+        'Potrebbe essere, ma è difficile dirlo.',
+        'Nessuna idea.',
+        'Sì, ma con alcune restrizioni.',
+      ],
     };
   },
   computed: {
@@ -284,7 +296,6 @@ const app = createApp({
 
       // prendo l'id più alto
       let highestId = this.highestId;
-      console.log(highestId);
 
       // salvo la data
       const messageDate = this.nowDate;
@@ -300,12 +311,16 @@ const app = createApp({
       // resetto l'input
       this.newMessage = '';
 
+      // prendo un messaggio random
+      const randomNumber = this.randomNumber(9, 0);
+      console.log(randomNumber);
+
       // risposta automatica
       setTimeout(() => {
         arr.push({
           id: ++highestId,
           date: messageDate,
-          message: 'Ok',
+          message: this.randomMessages[randomNumber],
           status: 'received',
         });
       }, 2000);
@@ -316,6 +331,9 @@ const app = createApp({
       this.currentChat.messages = arr.filter(mess => {
         return mess.id !== idToRemove;
       });
+    },
+    randomNumber(max, min) {
+      return Math.floor(Math.random() * (max + 1 - min)) + min;
     },
   },
 });
