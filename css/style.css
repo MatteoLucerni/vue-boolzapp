@@ -198,9 +198,9 @@ main .messages-input{
 }
 
 .emoji-menu{
-    height: 45px;
     position: absolute;
-    top: -40px;
+    top: -100px;
     left: 26px;
     cursor: pointer;
+    margin-right: 30px;
 }
