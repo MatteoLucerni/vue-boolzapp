@@ -424,6 +424,7 @@ const app = createApp({
           contact.visible = false;
         }
       }
+      this.isChatShown = false;
     },
   },
 });

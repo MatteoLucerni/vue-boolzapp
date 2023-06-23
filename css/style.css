@@ -86,6 +86,23 @@ main .messages-input{
     height: 80px;
 }
 
+main .delete-chat-menu{
+    position: relative;
+}
+
+main .delete-chat-menu:hover::after{
+    content: "Premi per eliminare la chat";
+    color: black;
+    position: absolute;
+    bottom: -79px;
+    left: -130px;
+    z-index: 1;
+    font-size: .8rem;
+    background-color: var(--lightgray);
+    padding: 15px;
+    border-radius: 25px;
+}
+
     /* ? messages */
 
 .messages{
