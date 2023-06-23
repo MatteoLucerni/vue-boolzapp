@@ -211,6 +211,7 @@ const app = createApp({
       },
       newMessage: '',
       userFilter: '',
+      messagesFilter: '',
       randomMessages: [
         'Sì, assolutamente.',
         'No, mi dispiace.',
@@ -450,6 +451,7 @@ const app = createApp({
         reader.readAsDataURL(file);
       }
     },
+    messagesFilter() {},
   },
 });
 

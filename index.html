@@ -14,7 +14,9 @@
     <div class="vh-100 vw-100 d-flex justify-content-center align-items-center">
         <div class="container">
             <div id="root" class="h-100 bg-light d-flex">
+                <!-- sidebar -->
                 <div id="sidebar">
+                    <!-- sidebar navbar-->
                     <header class="navbar">
                         <div class="d-flex align-items-center h-100">
                             <img :src=`img/avatar${user.avatar}.jpg` :alt="user.name">
@@ -26,6 +28,7 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </header>
+                    <!-- nitifications -->
                     <div class="notifications d-flex align-items-center px-4">
                         <div class="bell-container d-flex align-items-center rounded-circle">
                             <i class="fa-solid fa-bell-slash"></i>
@@ -39,6 +42,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- list of chats -->
                     <div class="chats">
                         <div class="input-group px-2 py-3">
                             <span class="input-group-text bg-white border-0">
@@ -60,10 +64,14 @@
                         </ul>
                     </div>
                 </div>
+                <!-- main -->
                 <main class="d-flex flex-column flex-grow-1">
+                    <!-- bg if no chats -->
                     <div v-if="isChatShown === false" id="no-chat">
                     </div>
+                    <!-- main navbarr -->
                     <header v-if="isChatShown === true" class="navbar">
+                        <!-- chat info -->
                         <div class="d-flex align-items-center h-100">
                             <img :src=`img/avatar${currentChat.avatar}.jpg` :alt="currentChat.name">
                             <div class="info-text">
@@ -72,17 +80,22 @@
                             </div>
                         </div>
                         <div>
+                            <!-- messages filter -->
                             <i class="fa-solid fa-magnifying-glass"></i>
+                            <!-- file loader -->
                             <label class="file-label" for="upload-file">
                                 <i class="fa-solid fa-paperclip"></i>
                             </label>
                             <input @change="loadImage" id="upload-file" type="file" class="d-none" ref="fileInput">
+                            <!-- delete current chat -->
                             <span class="delete-chat-menu">
                                 <i @click="deleteChat" class="fa-solid fa-ellipsis-vertical"></i>
                             </span>
                         </div>
                     </header>
+                    <!-- messages central interface -->
                     <div v-if="isChatShown === true" class="messages flex-grow-1">
+                        <!-- message info menu onclick -->
                         <div v-if="currentChat.infoVisible === true" class="message-info bg-dark text-white p-2 rounded">
                             <div class="text-center mb-3">
                                 <i @click="currentChat.infoVisible = false" class="fa-solid fa-xmark cursor-pointer"></i>
@@ -103,13 +116,16 @@
                                 Stato: {{infoMessage.status}}
                             </div>
                         </div>
+                        <!-- all the messages -->
                         <div v-for="mess in currentChat.messages" class="message d-flex flex-column">
                             <div class="message-graphic" :class="{'sent-message': mess.status === 'sent'},{'received-message': mess.status === 'received'}">
                                 <p class="m-0">{{mess.message}}</p>
                                 <div class="message-time">
                                     {{mess.date}}
                                 </div>
-                                <img class="user-image" :src="mess.image">
+                                <!-- user image message -->
+                                <img class="user-image" v-if="mess.image" :src="mess.image">
+                                <!-- info/delete message menu onclick -->
                                 <div class="arrow-menu">
                                     <i @click="mess.isArrowClicked = !mess.isArrowClicked" class="fa-solid fa-chevron-down"></i>
                                     <div v-if="mess.isArrowClicked" class="delete-menu rounded border">
@@ -120,15 +136,18 @@
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
+                    <!-- messages down navbar with input -->
                     <div v-if="isChatShown === true" class="navbar px-4">
+                        <!-- emoji menu -->
                         <div v-if="isEmojiMenu === true" class="emoji-menu bg-dark p-2 rounded">
                             <span @click="newMessage += emote" v-for="emote in emotes" class="fs-5">{{emote}}</span>
                         </div>
-                        <i @click="isEmojiMenu = !isEmojiMenu" class="fa-regular fa-face-smile  fa-bounce"></i>
+                        <i @click="isEmojiMenu = !isEmojiMenu" class="fa-regular fa-face-smile"></i>
+                        <!-- input new message -->
                         <input @keyup.enter="addMessage" v-model.trim="newMessage" type="text" class="h-100 rounded border-0 flex-grow-1 px-3 mx-4" placeholder="Scrivi un messaggio">
-                        <i :class="{'recording-indicator': listening === true}" @click="startListening" class="fa-solid fa-microphone fa-bounce"></i>
+                        <!-- recording feature -->
+                        <i :class="{'recording-indicator': listening === true}" @click="startListening" class="fa-solid fa-microphone"></i>
                     </div>
                 </main>
             </div>
