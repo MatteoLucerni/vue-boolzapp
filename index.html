@@ -61,7 +61,9 @@
                     </div>
                 </div>
                 <main class="d-flex flex-column flex-grow-1">
-                    <header class="navbar">
+                    <div v-if="isChatShown === false" id="no-chat">
+                    </div>
+                    <header v-if="isChatShown === true" class="navbar">
                         <div class="d-flex align-items-center h-100">
                             <img :src=`img/avatar${currentChat.avatar}.jpg` :alt="currentChat.name">
                             <div class="info-text">
@@ -75,7 +77,7 @@
                             <i @click="deleteChat" class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </header>
-                    <div class="messages flex-grow-1">
+                    <div v-if="isChatShown === true" class="messages flex-grow-1">
                         <div v-if="currentChat.infoVisible === true" class="message-info bg-dark text-white p-2 rounded">
                             <div class="text-center mb-3">
                                 <i @click="currentChat.infoVisible = false" class="fa-solid fa-xmark cursor-pointer"></i>
@@ -113,7 +115,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="navbar px-4">
+                    <div v-if="isChatShown === true" class="navbar px-4">
                         <div v-if="isEmojiMenu === true" class="emoji-menu bg-dark p-2 rounded">
                             <span @click="newMessage += emote" v-for="emote in emotes" class="fs-5">{{emote}}</span>
                         </div>

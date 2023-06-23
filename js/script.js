@@ -204,31 +204,9 @@ const app = createApp({
         },
       ],
       currentChat: {
-        name: 'Michele',
-        avatar: '_1',
-        messages: [
-          {
-            id: 1,
-            date: '10/01/2020 15:30:55',
-            message: 'Hai portato a spasso il cane?',
-            status: 'sent',
-            isArrowClicked: false,
-          },
-          {
-            id: 2,
-            date: '10/01/2020 15:50:00',
-            message: 'Ricordati di stendere i panni',
-            status: 'sent',
-            isArrowClicked: false,
-          },
-          {
-            id: 3,
-            date: '10/01/2020 16:15:22',
-            message: 'Tutto fatto!',
-            status: 'received',
-            isArrowClicked: false,
-          },
-        ],
+        name: '',
+        avatar: '',
+        messages: [],
         infoVisible: false,
       },
       newMessage: '',
@@ -312,6 +290,7 @@ const app = createApp({
       ],
       spokenText: '',
       listening: false,
+      isChatShown: false,
     };
   },
   computed: {
@@ -352,6 +331,7 @@ const app = createApp({
   },
   methods: {
     changeChat(i) {
+      this.isChatShown = true;
       // sovrascrivo gli elementi in pagina con quelli scelti dall'utente
       this.currentChat.name = this.contacts[i].name;
       this.currentChat.avatar = this.contacts[i].avatar;
