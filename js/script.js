@@ -424,7 +424,7 @@ const app = createApp({
     },
     deleteChat() {
       for (contact of this.filteredContacts) {
-        if (this.currentChat.name == contact.name) {
+        if (this.currentChat.name === contact.name) {
           contact.visible = false;
         }
       }
@@ -451,7 +451,9 @@ const app = createApp({
         reader.readAsDataURL(file);
       }
     },
-    messagesFilter() {},
+    messagesFilter() {
+      // ! TODO
+    },
   },
 });
 
