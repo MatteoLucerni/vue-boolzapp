@@ -288,7 +288,6 @@ const app = createApp({
         '😢',
         '😭',
       ],
-      spokenText: '',
       listening: false,
       isChatShown: false,
     };
@@ -339,8 +338,9 @@ const app = createApp({
 
       this.currentChat.infoVisible = false;
 
-      this.spokenText = '';
       this.newMessage = '';
+
+      this.isEmojiMenu = false;
     },
     addMessage() {
       if (!this.newMessage) return;
@@ -362,7 +362,7 @@ const app = createApp({
       });
 
       // resetto l'input
-      this.newMessage = this.spokenText = '';
+      this.newMessage = '';
 
       // prendo un messaggio random
       const randomNumber = this.randomNumber(9, 0);
@@ -407,7 +407,7 @@ const app = createApp({
         // trascrizione in testo
         recognition.onresult = event => {
           const transcript = event.results[0][0].transcript;
-          this.spokenText = transcript;
+          this.newMessage += transcript;
         };
 
         recognition.start();
@@ -432,6 +432,7 @@ const app = createApp({
     requestForNotification() {
       Notification.requestPermission();
     },
+    filterMessages() {},
   },
 });
 
