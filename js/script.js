@@ -426,6 +426,9 @@ const app = createApp({
       }
       this.isChatShown = false;
     },
+    requestForNotification() {
+      Notification.requestPermission();
+    },
   },
 });
 
