@@ -310,6 +310,8 @@ const app = createApp({
         '😢',
         '😭',
       ],
+      spokenText: '',
+      listening: false,
     };
   },
   computed: {
@@ -395,10 +397,7 @@ const app = createApp({
     },
     deleteMessage(message) {
       let arr = this.currentChat.messages;
-      const idToRemove = message.id;
-      this.currentChat.messages = arr.filter(mess => {
-        return mess.id !== idToRemove;
-      });
+      this.currentChat.messages = arr.filter(mess => mess.id !== message.id);
     },
     randomNumber(max, min) {
       return Math.floor(Math.random() * (max + 1 - min)) + min;
@@ -411,6 +410,40 @@ const app = createApp({
       this.infoMessage.status = mess.status;
 
       this.currentChat.infoVisible = true;
+    },
+    startListening() {
+      // riconoscimento vocale
+      if ('webkitSpeechRecognition' in window) {
+        // flag di registrazione
+        this.listening = true;
+        const recognition = new webkitSpeechRecognition();
+        // lingua di registrazione
+        recognition.lang = 'it-IT';
+        recognition.continuous = false;
+
+        // trascrizione in testo
+        recognition.onresult = event => {
+          const transcript = event.results[0][0].transcript;
+          this.spokenText = transcript;
+        };
+
+        recognition.start();
+
+        // reset dopo 5 secondi
+        setTimeout(() => {
+          this.listening = false;
+        }, 5000);
+      } else {
+        // se non disponibile
+        alert('Errore: riconoscimento vocale non disponibile');
+      }
+    },
+    deleteChat() {
+      for (contact of this.filteredContacts) {
+        if (this.currentChat.name == contact.name) {
+          contact.visible = false;
+        }
+      }
     },
   },
 });

@@ -47,12 +47,14 @@
                             <input v-model="userFilter" type="text" class="form-control border-0" placeholder="Cerca o inizia una nuova chat">
                         </div>
                         <ul class="chats-list p-0">
-                            <li v-for="(contact, i) in filteredContacts" class="d-flex py-2" @click="changeChat(i)">
-                                <img :src=`img/avatar${contact.avatar}.jpg` :alt="user.name" class="ms-4 me-2">
-                                <div class="info-text">
-                                    {{contact.name}}
-                                    <div class="last-message smaller-text text-gray">Ultimo messaggio: {{contact.messages[contact.messages.length - 1].message}}</div>
-                                    <div class="text-gray smaller-text">Ultimo accesso: {{contact.messages[contact.messages.length - 1].date}}</div>
+                            <li v-for="(contact, i) in filteredContacts" @click="changeChat(i)">
+                                <div v-if="contact.visible === true" class="d-flex py-2">
+                                    <img :src=`img/avatar${contact.avatar}.jpg` :alt="user.name" class="ms-4 me-2">
+                                    <div class="info-text">
+                                        {{contact.name}}
+                                        <div class="last-message smaller-text   text-gray">Ultimo messaggio: {{contact.   messages[contact.messages.length - 1]. message}}</div>
+                                        <div class="text-gray smaller-text">Ultimo  accesso: {{contact.messages[contact.messages.    length - 1].date}}</div>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -70,7 +72,7 @@
                         <div>
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <i class="fa-solid fa-paperclip"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                            <i @click="deleteChat" class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </header>
                     <div class="messages flex-grow-1">
@@ -116,8 +118,8 @@
                             <span @click="newMessage += emote" v-for="emote in emotes" class="fs-5">{{emote}}</span>
                         </div>
                         <i @click="isEmojiMenu = !isEmojiMenu" class="fa-regular fa-face-smile  fa-bounce"></i>
-                        <input @keyup.enter="addMessage" v-model.trim="newMessage" type="text" class="h-100 rounded border-0 flex-grow-1 px-3 mx-4" placeholder="Scrivi un messaggio">
-                        <i class="fa-solid fa-microphone"></i>
+                        <input @keyup.enter="addMessage" v-model.trim="newMessage" v-model="spokenText" type="text" class="h-100 rounded border-0 flex-grow-1 px-3 mx-4" placeholder="Scrivi un messaggio">
+                        <i :class="{'recording-indicator': listening === true}" @click="startListening" class="fa-solid fa-microphone fa-bounce"></i>
                     </div>
                 </main>
             </div>
