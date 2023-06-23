@@ -86,21 +86,33 @@ main .messages-input{
     height: 80px;
 }
 
-main .delete-chat-menu{
+main .delete-chat-menu, main .file-label{
     position: relative;
 }
 
-main .delete-chat-menu:hover::after{
-    content: "Premi per eliminare la chat";
+main .delete-chat-menu:hover::after, main .file-label:hover::after{
+    font-family: unset;
     color: black;
     position: absolute;
-    bottom: -79px;
-    left: -130px;
     z-index: 1;
     font-size: .8rem;
     background-color: var(--lightgray);
     padding: 15px;
-    border-radius: 25px;
+    border-radius: 10px;
+    border: 1px solid black
+}
+
+main .delete-chat-menu:hover::after{
+    content: "Premi per eliminare la chat";
+    bottom: -60px;
+    left: -157px;
+}
+
+main .file-label:hover::after{
+    content: "Premi per inviare un immagine";
+    bottom: -53px;
+    left: -179px;
+    width: 208px
 }
 
     /* ? messages */

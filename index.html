@@ -73,11 +73,13 @@
                         </div>
                         <div>
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <label for="upload-file">
+                            <label class="file-label" for="upload-file">
                                 <i class="fa-solid fa-paperclip"></i>
                             </label>
                             <input @change="loadImage" id="upload-file" type="file" class="d-none" ref="fileInput">
-                            <i @click="deleteChat" class="delete-chat-menu fa-solid fa-ellipsis-vertical"></i>
+                            <span class="delete-chat-menu">
+                                <i @click="deleteChat" class="fa-solid fa-ellipsis-vertical"></i>
+                            </span>
                         </div>
                     </header>
                     <div v-if="isChatShown === true" class="messages flex-grow-1">
