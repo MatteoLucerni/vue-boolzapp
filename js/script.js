@@ -432,7 +432,24 @@ const app = createApp({
     requestForNotification() {
       Notification.requestPermission();
     },
-    filterMessages() {},
+    loadImage(event) {
+      const file = event.target.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+
+        reader.onload = e => {
+          this.currentChat.messages.push({
+            id: ++this.highestId,
+            date: this.nowDate,
+            image: e.target.result,
+            status: 'sent',
+          });
+        };
+
+        reader.readAsDataURL(file);
+      }
+    },
   },
 });
 

@@ -193,6 +193,11 @@ main .delete-chat-menu:hover::after{
     cursor: pointer;
 }
 
+.message .user-image{
+    max-width: 100%;
+    border-radius: 0;
+}
+
 /* utils */
 
 .navbar{

@@ -73,7 +73,10 @@
                         </div>
                         <div>
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <i class="fa-solid fa-paperclip"></i>
+                            <label for="upload-file">
+                                <i class="fa-solid fa-paperclip"></i>
+                            </label>
+                            <input @change="loadImage" id="upload-file" type="file" class="d-none" ref="fileInput">
                             <i @click="deleteChat" class="delete-chat-menu fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </header>
@@ -104,6 +107,7 @@
                                 <div class="message-time">
                                     {{mess.date}}
                                 </div>
+                                <img class="user-image" :src="mess.image">
                                 <div class="arrow-menu">
                                     <i @click="mess.isArrowClicked = !mess.isArrowClicked" class="fa-solid fa-chevron-down"></i>
                                     <div v-if="mess.isArrowClicked" class="delete-menu rounded border">
@@ -114,6 +118,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                     <div v-if="isChatShown === true" class="navbar px-4">
                         <div v-if="isEmojiMenu === true" class="emoji-menu bg-dark p-2 rounded">
