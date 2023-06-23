@@ -338,6 +338,9 @@ const app = createApp({
       this.currentChat.messages = this.contacts[i].messages;
 
       this.currentChat.infoVisible = false;
+
+      this.spokenText = '';
+      this.newMessage = '';
     },
     addMessage() {
       if (!this.newMessage) return;
