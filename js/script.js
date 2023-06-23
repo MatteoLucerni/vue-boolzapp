@@ -379,7 +379,7 @@ const app = createApp({
       });
 
       // resetto l'input
-      this.newMessage = '';
+      this.newMessage = this.spokenText = '';
 
       // prendo un messaggio random
       const randomNumber = this.randomNumber(9, 0);
