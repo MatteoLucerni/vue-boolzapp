@@ -292,6 +292,8 @@ const app = createApp({
       listening: false,
       isChatShown: false,
       isNotifyGranted: false,
+      isSearchMessages: false,
+      messagesFilter: '',
     };
   },
   computed: {
@@ -328,6 +330,19 @@ const app = createApp({
       });
 
       return filteredContacts;
+    },
+    filteredMessages() {
+      // filtro di ricerca per messaggi
+      const arr = this.currentChat.messages;
+      const messagesFilter = this.messagesFilter.toLowerCase();
+
+      const filteredMessages = arr.filter(mess => {
+        if (mess.message.toLowerCase().includes(messagesFilter)) {
+          return mess;
+        }
+      });
+
+      return filteredMessages;
     },
   },
   methods: {
@@ -465,9 +480,6 @@ const app = createApp({
 
         reader.readAsDataURL(file);
       }
-    },
-    messagesFilter() {
-      // ! TODO
     },
   },
 });
