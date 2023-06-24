@@ -291,6 +291,7 @@ const app = createApp({
       ],
       listening: false,
       isChatShown: false,
+      isNotifyGranted: false,
     };
   },
   computed: {
@@ -431,7 +432,21 @@ const app = createApp({
       this.isChatShown = false;
     },
     requestForNotification() {
-      Notification.requestPermission();
+      // se le notifiche sono supportate
+      if ('Notification' in window) {
+        // se le notifiche non sono già state concesse
+        if (Notification.permission !== 'granted') {
+          // Richiedo il permesso e eseguo in base alla scelta dell utente
+          Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+              console.log('Notifiche abilitate');
+              this.isNotifyGranted = true;
+            } else {
+              console.log('Permesso notifiche negato');
+            }
+          });
+        }
+      }
     },
     loadImage(event) {
       const file = event.target.files[0];

@@ -248,6 +248,6 @@ main .file-label:hover::after{
     margin-right: 30px;
 }
 
-i.recording-indicator, i.recording-indicator:hover {
+i.recording-indicator, i.recording-indicator:hover, .record-text {
     color: red;
 }

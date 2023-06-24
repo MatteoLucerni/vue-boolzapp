@@ -28,8 +28,8 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </header>
-                    <!-- nitifications -->
-                    <div class="notifications d-flex align-items-center px-4">
+                    <!-- notifications -->
+                    <div v-if="isNotifyGranted === false" class="notifications d-flex align-items-center px-4">
                         <div class="bell-container d-flex align-items-center rounded-circle">
                             <i class="fa-solid fa-bell-slash"></i>
                         </div>
@@ -147,7 +147,10 @@
                         <!-- input new message -->
                         <input @keyup.enter="addMessage" v-model.trim="newMessage" type="text" class="h-100 rounded border-0 flex-grow-1 px-3 mx-4" placeholder="Scrivi un messaggio">
                         <!-- recording feature -->
-                        <i :class="{'recording-indicator': listening === true}" @click="startListening" class="fa-solid fa-microphone"></i>
+                        <div class="text-center">
+                            <i :class="{'recording-indicator': listening === true}" @click="startListening" class="fa-solid fa-microphone"></i>
+                            <div v-if="listening === true" class="record-text fs-6 fw-semibold">Di' qualcosa...</div>
+                        </div>
                     </div>
                 </main>
             </div>
