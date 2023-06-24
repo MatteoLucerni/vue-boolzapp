@@ -505,8 +505,10 @@ const app = createApp({
       }
     },
     addNewChat() {
-      this.filteredContacts.push(this.newChat);
-      this.isAddingNewChat = false;
+      if (this.newChat.name) {
+        this.filteredContacts.push(this.newChat);
+        this.isAddingNewChat = false;
+      }
     },
   },
 });

@@ -68,14 +68,16 @@
                                 </div>
                             </li>
                         </ul>
+                        <!-- Add new chat -->
                         <div v-if="isAddingNewChat === true" class="new-chat border rounded p-4">
                             <div class="text-center">
                                 <i @click="isAddingNewChat = false" class="fa-sharp fa-solid fa-xmark fa-2x mb-2 cursor-pointer"></i>
                             </div>
                             <h2 class="mb-3">Aggiungi una nuova chat</h2>
+                            <!-- Add new chat form data-->
                             <form action="#" :disabled=true>
                                 <label>Nome:</label>
-                                <input v-model="newChat.name" class="form-control mb-2" type="text" required>
+                                <input v-model.trim="newChat.name" class="form-control mb-2" type="text" required>
                                 <label>Scegli il genere:</label>
                                 <select v-model="newChat.avatar" class="form-select mb-4">
                                     <option value="_6">
