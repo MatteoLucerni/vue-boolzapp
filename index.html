@@ -79,12 +79,12 @@
                                 <div class="text-gray smaller-text">Ultimo accesso: {{currentChat.messages[currentChat.messages.length - 1].date}}</div>
                             </div>
                         </div>
-                        <div v-if="isSearchMessages === false" class="flex-grow-1 mx-3">
+                        <div v-if="isSearchMessages === true" class="flex-grow-1 mx-3">
                             <input v-model="messagesFilter" type="text" class="form-control border-0" placeholder="Cerca un messaggio">
                         </div>
                         <div>
                             <!-- messages filter -->
-                            <i @click="isSearchMessages = true" class="fa-solid fa-magnifying-glass"></i>
+                            <i @click="isSearchMessages = !isSearchMessages" class="fa-solid fa-magnifying-glass"></i>
                             <!-- file loader -->
                             <label class="file-label" for="upload-file">
                                 <i class="fa-solid fa-paperclip"></i>
