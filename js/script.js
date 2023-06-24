@@ -293,7 +293,12 @@ const app = createApp({
       isChatShown: false,
       isNotifyGranted: false,
       isSearchMessages: false,
+      isAddingNewChat: false,
       messagesFilter: '',
+      newChat: {
+        name: '',
+        avatar: '_6',
+      },
     };
   },
   computed: {
@@ -480,6 +485,9 @@ const app = createApp({
 
         reader.readAsDataURL(file);
       }
+    },
+    addNewChat() {
+      // ! TODO
     },
   },
 });

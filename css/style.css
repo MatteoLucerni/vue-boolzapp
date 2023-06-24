@@ -36,6 +36,11 @@ ul{
     list-style: none;
 }
 
+select option{
+    height: 30px;
+    width: 30px;
+}
+
 /* sidebar */
 
 #sidebar{
@@ -50,9 +55,22 @@ ul{
 
     /* ? chats */
 
+#sidebar .chats{
+    position: relative;
+}
+
 #sidebar .chats-list{
     max-height: 592px;
     overflow-y: auto;
+}
+
+#sidebar .chats .new-chat{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width: 90%;
+    transform: translate(-50%, -50%);
+    background-color: var(--blue);
 }
 
     /* ? notification */
@@ -250,4 +268,9 @@ main .file-label:hover::after{
 
 i.recording-indicator, i.recording-indicator:hover, .record-text {
     color: red;
+}
+
+.big-square{
+    height: 150px;
+    width: 150px;
 }
