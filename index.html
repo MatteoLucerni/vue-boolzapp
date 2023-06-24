@@ -56,7 +56,7 @@
                                     <img :src=`img/avatar${contact.avatar}.jpg` :alt="user.name" class="ms-4 me-2">
                                     <div class="info-text">
                                         {{contact.name}}
-                                        <div class="last-message smaller-text text-gray">Ultimo messaggio: {{contact.messages[contact.messages.length - 1].message}}</div>
+                                        <div v-if="contact.messages[0].message" class="last-message smaller-text text-gray">Ultimo messaggio: {{contact.messages[contact.messages.length - 1].message}}</div>
                                         <div class="text-gray smaller-text">Ultimo accesso: {{contact.messages[contact.messages.length - 1].date}}</div>
                                     </div>
                                 </div>
@@ -92,7 +92,7 @@
                                     {{newChat.name}}
                                     </div>
                                 </div>
-                                <input @click="addNewChat" type="submit" class="btn btn-primary d-block" value="Aggiungi">
+                                <button @click="addNewChat" class="btn btn-primary d-block">Aggiungi</button>
                             </form>
                         </div>
                     </div>

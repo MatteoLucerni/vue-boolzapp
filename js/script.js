@@ -296,8 +296,18 @@ const app = createApp({
       isAddingNewChat: false,
       messagesFilter: '',
       newChat: {
+        id: 90,
         name: '',
         avatar: '_6',
+        visible: true,
+        messages: [
+          {
+            message: 'Ciao, come stai?',
+            status: 'received',
+            date: '10/01/2020 15:30:55',
+            id: 1,
+          },
+        ],
       },
     };
   },
@@ -342,7 +352,9 @@ const app = createApp({
       const messagesFilter = this.messagesFilter.toLowerCase();
 
       const filteredMessages = arr.filter(mess => {
-        if (mess.message.toLowerCase().includes(messagesFilter)) {
+        if (typeof mess.message !== 'string') {
+          return mess;
+        } else if (mess.message.toLowerCase().includes(messagesFilter)) {
           return mess;
         }
       });
@@ -354,9 +366,9 @@ const app = createApp({
     changeChat(i) {
       this.isChatShown = true;
       // sovrascrivo gli elementi in pagina con quelli scelti dall'utente
-      this.currentChat.name = this.contacts[i].name;
-      this.currentChat.avatar = this.contacts[i].avatar;
-      this.currentChat.messages = this.contacts[i].messages;
+      this.currentChat.name = this.filteredContacts[i].name;
+      this.currentChat.avatar = this.filteredContacts[i].avatar;
+      this.currentChat.messages = this.filteredContacts[i].messages;
 
       this.currentChat.infoVisible = false;
 
@@ -475,6 +487,12 @@ const app = createApp({
         const reader = new FileReader();
 
         reader.onload = e => {
+          this.filteredMessages.push({
+            id: ++this.highestId,
+            date: this.nowDate,
+            image: e.target.result,
+            status: 'sent',
+          });
           this.currentChat.messages.push({
             id: ++this.highestId,
             date: this.nowDate,
@@ -487,7 +505,8 @@ const app = createApp({
       }
     },
     addNewChat() {
-      // ! TODO
+      this.filteredContacts.push(this.newChat);
+      this.isAddingNewChat = false;
     },
   },
 });
