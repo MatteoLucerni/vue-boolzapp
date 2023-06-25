@@ -299,7 +299,6 @@ const app = createApp({
         name: '',
         avatar: '_6',
       },
-      isChatAdded: false,
     };
   },
   computed: {
@@ -497,7 +496,7 @@ const app = createApp({
     },
     addNewChat() {
       if (this.newChat.name) {
-        this.filteredContacts.push({
+        this.contacts.push({
           id: 90,
           name: this.newChat.name,
           avatar: this.newChat.avatar,
