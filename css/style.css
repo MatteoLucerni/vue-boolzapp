@@ -109,8 +109,8 @@ select option{
 
 #sidebar .del-all:hover::after{
     content: "Premi per eliminare tutte le chat";
-    bottom: -53px;
-    left: -179px;
+    bottom: -75px;
+    left: -187px;
     width: 208px
 }
 
