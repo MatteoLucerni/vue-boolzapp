@@ -305,3 +305,16 @@ i.recording-indicator, i.recording-indicator:hover, .record-text {
 .text-overflow-elli{
     text-overflow: ellipsis;
 }
+
+.rotating:hover{
+    animation: rotating .7s infinite linear;
+}
+
+@keyframes rotating {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(359deg);
+    }
+}
