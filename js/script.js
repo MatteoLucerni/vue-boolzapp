@@ -296,18 +296,8 @@ const app = createApp({
       isAddingNewChat: false,
       messagesFilter: '',
       newChat: {
-        id: 90,
         name: '',
         avatar: '_6',
-        visible: true,
-        messages: [
-          {
-            message: 'Ciao, come stai?',
-            status: 'received',
-            date: '10/01/2020 15:30:55',
-            id: 1,
-          },
-        ],
       },
       isChatAdded: false,
     };
@@ -507,14 +497,30 @@ const app = createApp({
     },
     addNewChat() {
       if (this.newChat.name) {
-        this.filteredContacts.push(this.newChat);
+        this.filteredContacts.push({
+          id: 90,
+          name: this.newChat.name,
+          avatar: this.newChat.avatar,
+          visible: true,
+          messages: [
+            {
+              message: 'Ciao, come stai?',
+              status: 'received',
+              date: '10/01/2020 15:30:55',
+              id: 1,
+            },
+          ],
+        });
         this.isAddingNewChat = false;
         this.isChatAdded = true;
       }
+
+      this.newChat.name = '';
     },
     deleteAllChats() {
       this.contacts = [];
       this.isChatShown = false;
+      this.isChatAdded = false;
     },
   },
 });
