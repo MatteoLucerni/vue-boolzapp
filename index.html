@@ -35,7 +35,7 @@
                         <div class="bell-container d-flex align-items-center rounded-circle">
                             <i class="fa-solid fa-bell-slash"></i>
                         </div>
-                        <div class="">
+                        <div class="flex-grow-1">
                             <div class="info-text">
                                 Ricevi notifiche di nuovi messaggi
                             </div>
@@ -54,12 +54,12 @@
                         </div>
                         <ul class="chats-list p-0">
                             <li v-for="(contact, i) in filteredContacts" @click="changeChat(i)">
-                                <div v-if="contact.visible === true" class="d-flex py-2">
+                                <div v-if="contact.visible === true" class="d-flex py-2 limited-text">
                                     <img :src=`img/avatar${contact.avatar}.jpg` :alt="user.name" class="ms-4 me-2">
-                                    <div class="info-text">
+                                    <div class="chat-infos limited-text info-text">
                                         {{contact.name}}
-                                        <div v-if="contact.messages[0].message" class="last-message smaller-text text-gray">Ultimo messaggio: {{contact.messages[contact.messages.length - 1].message}}</div>
-                                        <div class="text-gray smaller-text">Ultimo accesso: {{contact.messages[contact.messages.length - 1].date}}</div>
+                                        <div v-if="contact.messages[0].message" class="limited-text last-message smaller-text text-gray">Ultimo messaggio: {{contact.messages[contact.messages.length - 1].message}}</div>
+                                        <div class="limited-text text-gray smaller-text">Ultimo accesso: {{contact.messages[contact.messages.length - 1].date}}</div>
                                     </div>
                                 </div>
                             </li>
@@ -92,7 +92,7 @@
                                 <label>Preview:</label>
                                 <div class="new-chat-preview d-flex p-3">
                                     <img class="big-square" :src=`img/avatar${newChat.avatar}.jpg` alt="avatar">
-                                    <p class="info-text flex-grow-1 preview-name">
+                                    <p class="info-text flex-grow-1 limited-text preview-name">
                                     {{newChat.name}}
                                     </p>
                                 </div>
@@ -112,7 +112,7 @@
                         <div class="d-flex align-items-center h-100">
                             <img :src=`img/avatar${currentChat.avatar}.jpg` :alt="currentChat.name">
                             <div class="info-text">
-                                <div>{{currentChat.name}}</div>
+                                <div class="chat-info-name info-text limited-text">{{currentChat.name}}</div>
                                 <div class="text-gray smaller-text">Ultimo accesso: {{currentChat.messages[currentChat.messages.length - 1].date}}</div>
                             </div>
                         </div>

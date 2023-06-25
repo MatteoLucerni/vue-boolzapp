@@ -1,3 +1,7 @@
+*{
+    word-wrap: break-word;
+}
+
 :root{
     --green: #009688;
     --blue: #8edafc;
@@ -60,7 +64,7 @@ select option{
 }
 
 #sidebar .chats-list{
-    max-height: 592px;
+    height: 592px;
     overflow-y: auto;
 }
 
@@ -71,6 +75,25 @@ select option{
     width: 90%;
     transform: translate(-50%, -50%);
     background-color: var(--blue);
+}
+
+#sidebar ul li{
+    border-bottom: 1px solid var(--lightgray);
+    cursor: pointer;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+#sidebar ul li img{
+    height: 120px;
+}
+
+#sidebar ul li:hover{
+    background-color: var(--lightgray);
+}
+
+#sidebar .chat-infos{
+    max-width: 60%;
 }
 
     /* ? notification */
@@ -84,24 +107,21 @@ select option{
     color: var(--blue);
 }
 
-#sidebar ul li{
-    border-bottom: 1px solid var(--lightgray);
-    cursor: pointer;
-    text-overflow: ellipsis;
-}
-
-#sidebar ul li img{
-    height: 120px;
-}
-
-#sidebar ul li:hover{
-    background-color: var(--lightgray);
+#sidebar .del-all:hover::after{
+    content: "Premi per eliminare tutte le chat";
+    bottom: -53px;
+    left: -179px;
+    width: 208px
 }
 
 /* main */
 
 main .messages-input{
     height: 80px;
+}
+
+main .chat-info-name{
+    max-width: 350px;
 }
 
 main .delete-chat-menu, main .file-label, #sidebar .del-all{
@@ -131,17 +151,6 @@ main .file-label:hover::after{
     bottom: -53px;
     left: -179px;
     width: 208px
-}
-
-#sidebar .del-all:hover::after{
-    content: "Premi per eliminare tutte le chat";
-    bottom: -53px;
-    left: -179px;
-    width: 208px
-}
-
-#sidebar .preview-name{
-    overflow-x: auto;
 }
 
     /* ? messages */
@@ -255,6 +264,7 @@ main .file-label:hover::after{
     margin-left: 10px;
     font-weight: 500;
     font-size: 20px;
+    text-overflow: ellipsis;
 }
 
 .text-gray{
@@ -284,4 +294,14 @@ i.recording-indicator, i.recording-indicator:hover, .record-text {
 .big-square{
     height: 150px;
     width: 150px;
+}
+
+.limited-text{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.text-overflow-elli{
+    text-overflow: ellipsis;
 }
