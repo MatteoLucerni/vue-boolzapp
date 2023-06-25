@@ -512,6 +512,10 @@ const app = createApp({
         this.isChatAdded = true;
       }
     },
+    deleteAllChats() {
+      this.contacts = [];
+      this.isChatShown = false;
+    },
   },
 });
 

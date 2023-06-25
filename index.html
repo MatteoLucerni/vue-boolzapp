@@ -24,8 +24,10 @@
                         </div>
                         <div>
                             <i class="fa-solid fa-circle-notch"></i>
-                            <i class="fa-solid fa-message"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                            <i @click="isAddingNewChat = true" class="fa-solid fa-message"></i>
+                            <span @click="deleteAllChats" class="del-all">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </span>
                         </div>
                     </header>
                     <!-- notifications -->
@@ -90,9 +92,9 @@
                                 <label>Preview:</label>
                                 <div class="new-chat-preview d-flex p-3">
                                     <img class="big-square" :src=`img/avatar${newChat.avatar}.jpg` alt="avatar">
-                                    <div class="info-text">
+                                    <p class="info-text flex-grow-1 preview-name">
                                     {{newChat.name}}
-                                    </div>
+                                    </p>
                                 </div>
                                 <button @click="addNewChat" class="btn btn-primary d-block">Aggiungi</button>
                             </form>

@@ -104,11 +104,11 @@ main .messages-input{
     height: 80px;
 }
 
-main .delete-chat-menu, main .file-label{
+main .delete-chat-menu, main .file-label, #sidebar .del-all{
     position: relative;
 }
 
-main .delete-chat-menu:hover::after, main .file-label:hover::after{
+main .delete-chat-menu:hover::after, main .file-label:hover::after, #sidebar .del-all:hover::after{
     font-family: unset;
     color: black;
     position: absolute;
@@ -131,6 +131,17 @@ main .file-label:hover::after{
     bottom: -53px;
     left: -179px;
     width: 208px
+}
+
+#sidebar .del-all:hover::after{
+    content: "Premi per eliminare tutte le chat";
+    bottom: -53px;
+    left: -179px;
+    width: 208px
+}
+
+#sidebar .preview-name{
+    overflow-x: auto;
 }
 
     /* ? messages */
