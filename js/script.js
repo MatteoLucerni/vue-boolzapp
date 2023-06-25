@@ -309,6 +309,7 @@ const app = createApp({
           },
         ],
       },
+      isChatAdded: false,
     };
   },
   computed: {
@@ -508,6 +509,7 @@ const app = createApp({
       if (this.newChat.name) {
         this.filteredContacts.push(this.newChat);
         this.isAddingNewChat = false;
+        this.isChatAdded = true;
       }
     },
   },
